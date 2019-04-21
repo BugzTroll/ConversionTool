@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="mainpage.css">
+    <script src="dependencies/three.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <body>
+        <div class=container></div>
+            <!-- input section -->
+            <div class="input-section"> 
+
+                <div class="section-label"> input section </div>
+                    <!-- euler angles -->
+                    <div class="angle-section euler-section"> 
+                        <div class="section-label"> Euler angle section </div>
+
+                         <!-- XYZ -->
+                        
+                        <div class="input-euler-values">
+                            <label for="eulerx-XYZ">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-XYZ" name="eulerx-XYZ">
+                            <label for="eulery-XYZ">y: </label>
+                            <input class="input-angle" type="number" id="eulery-XYZ" name="eulery-XYZ">
+                            <label for="eulerz-XYZ">z: </label>
+                            <input class="input-angle" type="number" id="eulerz-XYZ" name="eulerz-XYZ">
+                            <button type="button" class="convert-button" id="button-convert-euler-XYZ">Convert euler XYZ</button>
+                        </div>
+
+                        <!-- XZY -->
+                        <div class="input-euler-values">
+                            <label for="eulerx-XZY">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-XZY" name="eulerx-XZY">
+                            <label for="eulery-XZY">y: </label>
+                            <input class="input-angle" type="number" id="eulery-XZY" name="eulery-XZY">
+                            <label for="eulerz-XZY">z: </label>
+                            <input class="input-angle" type="number" id="eulerz-XZY" name="eulerz-XZY">
+                            <button type="button" class="convert-button" id="button-convert-euler-XZY">Convert euler XZY</button>
+                        </div>
+
+                        <!-- YZX -->
+                        <div class="input-euler-values">
+                            <label for="eulerx-YZX">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-YZX" name="eulerx-YZX">
+                            <label for="eulery-YZX">y: </label>
+                            <input class="input-angle" type="number" id="eulery-YZX" name="eulery-YZX">
+                            <label for="eulerz-YZX">z: </label>
+                            <input class="input-angle" type="number" id="eulerz-YZX" name="eulerz-YZX">
+                            <button type="button" class="convert-button" id="button-convert-euler-YZX">Convert euler YZX</button>
+                        </div>
+
+                        <!-- YXZ -->
+                        <div class="input-euler-values">
+                            <label for="eulerx-YXZ">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-YXZ" name="eulerx-YXZ">
+                            <label for="eulery-YXZ">y: </label>
+                            <input class="input-angle" type="number" id="eulery-YXZ" name="eulery-YXZ">
+                            <label for="eulerz-YXZ">z: </label>
+                            <input class="input-angle" type="number" id="eulerz-YXZ" name="eulerz-YXZ">
+                            <button type="button" class="convert-button" id="button-convert-euler-YXZ">Convert euler YXZ</button>
+                        </div>
+
+                        <!-- ZXY -->
+                        <div class="input-euler-values">
+                            <label for="eulerx-ZXY">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-ZXY" name="eulerx-ZXY">
+                            <label for="eulery-ZXY">y: </label>
+                            <input class="input-angle" type="number" id="eulery-ZXY" name="eulery-ZXY">
+                            <label for="eulerz-ZXY">z: </label>
+                            <input class="input-angle" type="number" id="eulerz-ZXY" name="eulerz-ZXY">
+                            <button type="button" class="convert-button" id="button-convert-euler-ZXY">Convert euler ZXY</button>
+                        </div>
+
+                        <!-- ZYX -->
+                        <div class="input-euler-values">
+                            <label for="eulerx-ZYX">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-ZYX" name="eulerx-ZYX">
+                            <label for="eulery-ZYX">y: </label>
+                            <input class="input-angle" type="number" id="eulery-ZYX" name="eulery-ZYX">
+                            <label for="eulerz-ZYX">z: </label>
+                            <input class="input-angle" type="number" id="eulerz-ZYX" name="eulerz-ZYX">
+                            <button type="button" class="convert-button" id="button-convert-euler-ZYX">Convert eule ZYX</button>
+                        </div>
+
+
+                    </div>
+                     <!-- quaternion angles -->
+                    <div class="angle-section quaternion-section"> 
+                        <div class="section-label"> Quaternion section </div>
+                        <label for="quaternionx">x: </label>
+                        <input class="input-angle" type="number" id="quaternionx" name="quaternionx">
+                        <label for="quaterniony">y: </label>
+                        <input class="input-angle" type="number" id="quaterniony" name="quaterniony">
+                        <label for="quaternionz">z: </label>
+                        <input class="input-angle" type="number" id="quaternionz" name="quaternionz">
+                        <label for="quaternionw">w: </label>
+                        <input class="input-angle" type="number" id="quaternionw" name="quaternionw">
+                        <button type="button" class="convert-button" id="button-convert-quaternion">Convert quaternion</button>
+
+                    </div>
+                     <!-- rotation matrix -->
+                    <div class="angle-section rotation-section"> 
+
+                        <div class="section-label"> Rotation Matrix section </div>
+                        <div class="section-rotation-matrix">
+                            <div>
+                                <label for="rot00">00: </label>
+                                <input class="input-angle" type="number" id="rot00" name="rot00">
+                                <label for="rot00">01: </label>
+                                <input class="input-angle" type="number" id="rot01" name="rot01">
+                                <label for="rot00">02: </label>
+                                <input class="input-angle" type="number" id="rot02" name="rot02">
+                            </div>
+
+                            <div>
+                                <label for="rot00">10: </label>
+                                <input class="input-angle" type="number" id="rot10" name="rot10">
+                                <label for="rot00">11: </label>
+                                <input class="input-angle" type="number" id="rot11" name="rot11">
+                                <label for="rot00">12: </label>
+                                <input class="input-angle" type="number" id="rot12" name="rot12">
+                            </div>
+
+                            <div>
+                                <label for="rot00">20: </label>
+                                <input class="input-angle" type="number" id="rot20" name="rot20">
+                                <label for="rot00">21: </label>
+                                <input class="input-angle" type="number" id="rot21" name="rot21">
+                                <label for="rot00">22: </label>
+                                <input class="input-angle" type="number" id="rot22" name="rot22">
+                            </div>
+                        </div>
+                        <div class="section-rotation-matrix-button">
+                            <button type="button" class="convert-button" id=button-convert-rotation>Convert Rotation Matrix</button>
+                        </div>
+                    </div>
+                <div> </div>
+            </div>
+            <!-- display section -->
+            <div class="display-section">
+                <div class="section-label"> display section <div>
+                <canvas id="canvasScene" width="400" height="400" style="border:1px solid #000000;"></canvas>
+            </div>
+        </div>
+
+            <script>
+
+                let currentRotation = new THREE.Euler(0,0,0, "XYZ");
+
+                // Events
+                $(".input-angle").change( (event) => {
+                    console.log( event.target.name );
+                } );
+
+                // $("[id^=button-convert-euler]").click( (event) => {
+                //     console.log("convert euler")
+                // } );
+
+                $("#button-convert-euler-XYZ").click( (event) => {
+                    let x = Number($("#eulerx-XYZ").val());
+                    let y = Number($("#eulery-XYZ").val());
+                    let z = Number($("#eulerz-XYZ").val());
+                    let eulerXYZ = new THREE.Euler(x,y,z, "XYZ");
+                    let quat = convertEulerToQuaternion(eulerXYZ);
+                    let rot = convertEulerToRotationMatrix(eulerXYZ);
+                    let eulerXZY = eulerXYZ.clone().reorder("XZY");
+                    let eulerYZX = eulerXYZ.clone().reorder("YZX");
+                    let eulerYXZ = eulerXYZ.clone().reorder("YXZ");
+                    let eulerZYX = eulerXYZ.clone().reorder("ZYX");
+                    let eulerZXY = eulerXYZ.clone().reorder("ZXY");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-euler-XZY").click( (event) => {
+                    let x = Number($("#eulerx-XZY").val());
+                    let y = Number($("#eulery-XZY").val());
+                    let z = Number($("#eulerz-XZY").val());
+                    let eulerXZY = new THREE.Euler(x,y,z, "XZY");
+                    let quat = convertEulerToQuaternion(eulerXZY);
+                    let rot = convertEulerToRotationMatrix(eulerXZY);
+                    let eulerXYZ = eulerXZY.clone().reorder("XYZ");
+                    let eulerYZX = eulerXZY.clone().reorder("YZX");
+                    let eulerYXZ = eulerXZY.clone().reorder("YXZ");
+                    let eulerZYX = eulerXZY.clone().reorder("ZYX");
+                    let eulerZXY = eulerXZY.clone().reorder("ZXY");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-euler-YZX").click( (event) => {
+                    let x = Number($("#eulerx-YZX").val());
+                    let y = Number($("#eulery-YZX").val());
+                    let z = Number($("#eulerz-YZX").val());
+                    let eulerYZX = new THREE.Euler(x,y,z, "YZX");
+                    let quat = convertEulerToQuaternion(eulerYZX);
+                    let rot = convertEulerToRotationMatrix(eulerYZX);
+                    let eulerXZY = eulerYZX.clone().reorder("XZY");
+                    let eulerXYZ = eulerYZX.clone().reorder("XYZ");
+                    let eulerYXZ = eulerYZX.clone().reorder("YXZ");
+                    let eulerZYX = eulerYZX.clone().reorder("ZYX");
+                    let eulerZXY = eulerYZX.clone().reorder("ZXY");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-euler-YXZ").click( (event) => {
+                    let x = Number($("#eulerx-YXZ").val());
+                    let y = Number($("#eulery-YXZ").val());
+                    let z = Number($("#eulerz-YXZ").val());
+                    let eulerYXZ = new THREE.Euler(x,y,z, "YXZ");
+                    let quat = convertEulerToQuaternion(eulerYXZ);
+                    let rot = convertEulerToRotationMatrix(eulerYXZ);
+                    let eulerXYZ = eulerYXZ.clone().reorder("XYZ");
+                    let eulerXZY = eulerYXZ.clone().reorder("XZY");
+                    let eulerYZX = eulerYXZ.clone().reorder("YZX");
+                    let eulerZYX = eulerYXZ.clone().reorder("ZYX");
+                    let eulerZXY = eulerYXZ.clone().reorder("ZXY");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-euler-ZYX").click( (event) => {
+                    let x = Number($("#eulerx-ZYX").val());
+                    let y = Number($("#eulery-ZYX").val());
+                    let z = Number($("#eulerz-ZYX").val());
+                    let eulerZYX = new THREE.Euler(x,y,z, "ZYX");
+                    let quat = convertEulerToQuaternion(eulerZYX);
+                    let rot = convertEulerToRotationMatrix(eulerZYX);
+                    let eulerXYZ = eulerZYX.clone().reorder("XYZ");
+                    let eulerXZY = eulerZYX.clone().reorder("XZY");
+                    let eulerYZX = eulerZYX.clone().reorder("YZX");
+                    let eulerYXZ = eulerZYX.clone().reorder("YXZ");
+                    let eulerZXY = eulerZYX.clone().reorder("ZXY");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-euler-ZXY").click( (event) => {
+                    let x = Number($("#eulerx-ZXY").val());
+                    let y = Number($("#eulery-ZXY").val());
+                    let z = Number($("#eulerz-ZXY").val());
+                    let eulerZXY = new THREE.Euler(x,y,z, "ZXY");
+                    let quat = convertEulerToQuaternion(eulerZXY);
+                    let rot = convertEulerToRotationMatrix(eulerZXY);
+                    let eulerXYZ = eulerZXY.clone().reorder("XYZ");
+                    let eulerXZY = eulerZXY.clone().reorder("XZY");
+                    let eulerYZX = eulerZXY.clone().reorder("YZX");
+                    let eulerYXZ = eulerZXY.clone().reorder("YXZ");
+                    let eulerZYX = eulerZXY.clone().reorder("ZYX");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-quaternion").click( (event) => {
+                    console.log("convert quat")
+                    let x = Number($("#quaternionx").val());
+                    let y = Number($("#quaterniony").val());
+                    let z = Number($("#quaternionz").val());
+                    let w = Number($("#quaternionw").val());
+                    let quat = new THREE.Quaternion(x,y,z,w);
+                    let eulerXYZ = convertQuaternionToEuler(quat, "XYZ");
+                    let eulerXZY = convertQuaternionToEuler(quat, "XZY");
+                    let eulerYZX = convertQuaternionToEuler(quat, "YXZ");
+                    let eulerYXZ = convertQuaternionToEuler(quat, "YZX");
+                    let eulerZYX = convertQuaternionToEuler(quat, "ZYX");
+                    let eulerZXY = convertQuaternionToEuler(quat, "ZXY");
+                    let rot = convertQuaternionToRotationMatrix(quat);
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                $("#button-convert-rotation").click( (event) => {
+                    console.log("convert rot")
+                    let r00 = Number($("#rot00").val());
+                    let r01 = Number($("#rot01").val());
+                    let r02 = Number($("#rot02").val());
+                    let r10 = Number($("#rot10").val());
+                    let r11 = Number($("#rot11").val());
+                    let r12 = Number($("#rot12").val());
+                    let r20 = Number($("#rot20").val());
+                    let r21 = Number($("#rot21").val());
+                    let r22 = Number($("#rot22").val());
+                    let rot = new THREE.Matrix3().set(r00, r01, r02, r10, r11, r12, r20, r21, r22);
+                    let quat = convertRotationMatrixToQuaternion(rot);
+                    let eulerXYZ = convertRotationMatrixToEuler(rot, "XYZ");
+                    let eulerXZY = convertRotationMatrixToEuler(rot, "XZY");
+                    let eulerYZX = convertRotationMatrixToEuler(rot, "YXZ");
+                    let eulerYXZ = convertRotationMatrixToEuler(rot, "YZX");
+                    let eulerZYX = convertRotationMatrixToEuler(rot, "ZYX");
+                    let eulerZXY = convertRotationMatrixToEuler(rot, "ZXY");
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                } );
+
+                //TEST FUNCTIONS
+                // let euler = new THREE.Euler(90,0,0);
+                // let quat = convertEulerToQuaternion(euler);
+                // let rot = convertEulerToRotationMatrix(euler);
+
+                // console.log("---------------")
+                // console.log("euler->quat");
+                // console.log(convertEulerToQuaternion(euler));
+                // console.log("euler->rot");
+                // console.log(convertEulerToRotationMatrix(euler));
+
+                // console.log("---------------")
+                // console.log("quat->rot");
+                // console.log(convertQuaternionToRotationMatrix(quat));
+                // console.log("quat->eulerXYZ");
+                // console.log(convertQuaternionToEuler(quat, "XYZ"));
+                // console.log("quat->eulerXZY");
+                // console.log(convertQuaternionToEuler(quat, "XZY"));
+                // console.log("quat->eulerYXZ");
+                // console.log(convertQuaternionToEuler(quat, "YXZ"));
+                // console.log("quat->eulerYZX");
+                // console.log(convertQuaternionToEuler(quat, "YZX"));
+                // console.log("quat->eulerZYX");
+                // console.log(convertQuaternionToEuler(quat, "ZYX"));
+                // console.log("quat->eulerZXY");
+                // console.log(convertQuaternionToEuler(quat, "ZXY"));
+
+                // console.log("---------------")
+                // console.log("rot->quat");
+                // console.log(convertRotationMatrixToQuaternion(rot));
+                // console.log("rot->eulerXYZ");
+                // console.log(convertRotationMatrixToEuler(rot, "XYZ"));
+                // console.log("rot->eulerXZY");
+                // console.log(convertRotationMatrixToEuler(rot, "XZY"));
+                // console.log("rot->eulerYXZ");
+                // console.log(convertRotationMatrixToEuler(rot, "YXZ"));
+                // console.log("rot->eulerYZX");
+                // console.log(convertRotationMatrixToEuler(rot, "YZX"));
+                // console.log("rot->eulerZYX");
+                // console.log(convertRotationMatrixToEuler(rot, "ZYX"));
+                // console.log("rot->eulerZXY");
+                // console.log(convertRotationMatrixToEuler(rot, "ZXY"));
+
+                // Conversion functions
+                function convertEulerToQuaternion(euler) {
+                    let quaternion = new THREE.Quaternion().setFromEuler(euler);
+                    return quaternion;
+                }
+                function convertEulerToRotationMatrix(euler) {
+                    let rotationMatrix4 = new THREE.Matrix4().makeRotationFromEuler(euler);
+                    let rotationMatrix3 = new THREE.Matrix3().setFromMatrix4( rotationMatrix4 );
+                    return rotationMatrix3;
+                }
+                function convertQuaternionToRotationMatrix(quaternion) {
+                    let rotationMatrix4 = new THREE.Matrix4().makeRotationFromQuaternion(quaternion);
+                    let rotationMatrix3 = new THREE.Matrix3().setFromMatrix4( rotationMatrix4 );
+                    return rotationMatrix3;
+                }
+                function convertQuaternionToEuler(quaterion, order) {
+                    let euler = new THREE.Euler().setFromQuaternion(quaterion, order);
+                    return euler;
+                }
+                function convertRotationMatrixToEuler(rotationMatrix3, order) {
+                    let rotationMatrix4 = new THREE.Matrix4().set(
+                        rotationMatrix3.elements[0],rotationMatrix3.elements[3],rotationMatrix3.elements[6], 0,
+                        rotationMatrix3.elements[1],rotationMatrix3.elements[4],rotationMatrix3.elements[7], 0,
+                        rotationMatrix3.elements[2],rotationMatrix3.elements[5],rotationMatrix3.elements[8], 0,
+                        0, 0, 0, 1);
+                    let euler = new THREE.Euler().setFromRotationMatrix(rotationMatrix4, order);
+                    return euler;
+                }
+                function convertRotationMatrixToQuaternion(rotationMatrix3) {
+                    let rotationMatrix4 = new THREE.Matrix4().set(
+                        rotationMatrix3.elements[0],rotationMatrix3.elements[3],rotationMatrix3.elements[6], 0,
+                        rotationMatrix3.elements[1],rotationMatrix3.elements[4],rotationMatrix3.elements[7], 0,
+                        rotationMatrix3.elements[2],rotationMatrix3.elements[5],rotationMatrix3.elements[8], 0,
+                        0, 0, 0, 1);
+                    let quaternion = new THREE.Quaternion().setFromRotationMatrix(rotationMatrix4);
+                    return quaternion;
+                }
+
+                function updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quaternion, rot) {
+
+                    currentRotation = eulerXYZ;
+                    $("#quaternionx").val(quaternion.x);
+                    $("#quaterniony").val(quaternion.y);
+                    $("#quaternionz").val(quaternion.z);
+                    $("#quaternionw").val(quaternion.w);
+
+                    $("#rot00").val(rot.elements[0]);
+                    $("#rot01").val(rot.elements[3]);
+                    $("#rot02").val(rot.elements[6]);
+                    $("#rot10").val(rot.elements[1]);
+                    $("#rot11").val(rot.elements[4]);
+                    $("#rot12").val(rot.elements[7]);
+                    $("#rot20").val(rot.elements[2]);
+                    $("#rot21").val(rot.elements[5]);
+                    $("#rot22").val(rot.elements[8]);
+
+                    //XYZ
+                    $("#eulerx-XYZ").val(eulerXYZ.x);
+                    $("#eulery-XYZ").val(eulerXYZ.y);
+                    $("#eulerz-XYZ").val(eulerXYZ.z);
+                    
+                    //XZY
+                    $("#eulerx-XZY").val(eulerXZY.x);
+                    $("#eulery-XZY").val(eulerXZY.y);
+                    $("#eulerz-XZY").val(eulerXZY.z);
+                    
+                    //YXZ
+                    $("#eulerx-YXZ").val(eulerYXZ.x);
+                    $("#eulery-YXZ").val(eulerYXZ.y);
+                    $("#eulerz-YXZ").val(eulerYXZ.z);
+
+                    //YZX
+                    $("#eulerx-YZX").val(eulerYZX.x);
+                    $("#eulery-YZX").val(eulerYZX.y);
+                    $("#eulerz-YZX").val(eulerYZX.z);
+
+                    //ZYX
+                    $("#eulerx-ZYX").val(eulerZYX.x)
+                    $("#eulery-ZYX").val(eulerZYX.y)
+                    $("#eulerz-ZYX").val(eulerZYX.z)
+
+                    //ZXY
+                    $("#eulerx-ZXY").val(eulerZXY.x);
+                    $("#eulery-ZXY").val(eulerZXY.y);
+                    $("#eulerz-ZXY").val(eulerZXY.z);
+                }
+
+                function setupScene(){
+                    let scene = new THREE.Scene();
+                    let canvas = $("#canvasScene");
+                    let camera = new THREE.PerspectiveCamera( 75, canvas.width() / canvas.height(), 0.1, 1000 );
+
+                    let renderer = new THREE.WebGLRenderer({ canvas: canvasScene });
+                    renderer.setSize( canvas.width(), canvas.height() );
+
+                    let axesHelper = new THREE.AxesHelper( 2.5 );
+                    scene.add( axesHelper );
+
+                    var gridHelper = new THREE.GridHelper( 10, 10 );
+                    scene.add( gridHelper );
+
+                    camera.position.z = 3;
+                    camera.position.y = 3;
+                    camera.position.x = 3;
+                    camera.lookAt(new THREE.Vector3(0,0,0));
+
+                    var material = new THREE.LineBasicMaterial( { color: 0xffffff } );
+                    var geometry = new THREE.Geometry();
+                    geometry.vertices.push(new THREE.Vector3( 0, 0, 0) );
+                    geometry.vertices.push(new THREE.Vector3( 0, 0, 1) );
+                    geometry.vertices.push(new THREE.Vector3( 0, 0, 2) );
+                    var line = new THREE.Line( geometry, material );
+                    line.material.depthTest = false;
+                    scene.add( line );
+
+                    var line2 = new THREE.Line( geometry, material );
+                    line2.material.depthTest = false;
+                    scene.add( line2 )
+
+                    let animate = function () {
+                        line2.rotation.set(currentRotation.x, currentRotation.y, currentRotation.z);
+                        requestAnimationFrame( animate );
+                        renderer.render( scene, camera );
+                    };
+
+                    animate();
+                }
+
+                setupScene();
+
+            </script>
+
+        </body>
+</html>

@@ -1,0 +1,50 @@
+
+.input-section {
+    background-color: grey;
+    width: 100%;
+    display: inline-block;
+}
+
+.display-section{
+    background-color: white;
+    height: 500px;
+}
+
+.container {
+    text-align: center
+}
+
+.angle-section {
+    display: inline-block;
+    width: 500px;
+    text-align: center;
+    border: solid 1px;
+    padding: 10px 10px 10px 10px;
+}
+
+.section-label {
+    text-align: center;
+}
+
+.input-angle {
+    width: 70px;
+}
+
+.input-euler-values {
+    margin-top: 10px;
+}
+
+.convert-button {
+    width: 80px;
+    font-size: 11px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.section-rotation-matrix-button {
+    display: inline-block;
+}
+
+.section-rotation-matrix {
+    display: inline-block;
+}
