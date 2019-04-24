@@ -11,131 +11,132 @@
             <!-- input section -->
             <div class="input-section"> 
 
-                <div class="section-label"> input section </div>
+                <!-- <div class="section-label"> input section </div> -->
                     <!-- euler angles -->
                     <div class="angle-section euler-section"> 
-                        <div class="section-label"> Euler angle section </div>
+                        <div class="title">
+                            <div class="section-label"> Euler angle </div>
+                            <input id="angle-rad" type="radio" name="angle-representation" value="radian" checked="checked"> <label style="font-size: 11px;">Radians</label>
+                            <input id="angle-deg" type="radio" name="angle-representation" value="degree"> <label style="font-size: 11px;">Degree</label>
+                        </div>
 
                          <!-- XYZ -->
-                        
                         <div class="input-euler-values">
                             <label for="eulerx-XYZ">x: </label>
-                            <input class="input-angle" type="number" id="eulerx-XYZ" name="eulerx-XYZ">
+                            <input class="input-angle" type="number" id="eulerx-XYZ" name="eulerx-XYZ" value=0>
                             <label for="eulery-XYZ">y: </label>
-                            <input class="input-angle" type="number" id="eulery-XYZ" name="eulery-XYZ">
+                            <input class="input-angle" type="number" id="eulery-XYZ" name="eulery-XYZ" value=0>
                             <label for="eulerz-XYZ">z: </label>
-                            <input class="input-angle" type="number" id="eulerz-XYZ" name="eulerz-XYZ">
-                            <button type="button" class="convert-button" id="button-convert-euler-XYZ">Convert euler XYZ</button>
+                            <input class="input-angle" type="number" id="eulerz-XYZ" name="eulerz-XYZ" value=0>
+                            <button type="button" class="convert-button euler-button" id="button-convert-euler-XYZ">Convert euler XYZ</button>
                         </div>
 
                         <!-- XZY -->
                         <div class="input-euler-values">
                             <label for="eulerx-XZY">x: </label>
-                            <input class="input-angle" type="number" id="eulerx-XZY" name="eulerx-XZY">
-                            <label for="eulery-XZY">y: </label>
-                            <input class="input-angle" type="number" id="eulery-XZY" name="eulery-XZY">
+                            <input class="input-angle" type="number" id="eulerx-XZY" name="eulerx-XZY" value=0>
                             <label for="eulerz-XZY">z: </label>
-                            <input class="input-angle" type="number" id="eulerz-XZY" name="eulerz-XZY">
-                            <button type="button" class="convert-button" id="button-convert-euler-XZY">Convert euler XZY</button>
+                            <input class="input-angle" type="number" id="eulerz-XZY" name="eulerz-XZY" value=0>
+                            <label for="eulery-XZY">y: </label>
+                            <input class="input-angle" type="number" id="eulery-XZY" name="eulery-XZY" value=0>
+                            <button type="button" class="convert-button euler-button"" id="button-convert-euler-XZY">Convert euler XZY</button>
                         </div>
 
                         <!-- YZX -->
                         <div class="input-euler-values">
-                            <label for="eulerx-YZX">x: </label>
-                            <input class="input-angle" type="number" id="eulerx-YZX" name="eulerx-YZX">
                             <label for="eulery-YZX">y: </label>
-                            <input class="input-angle" type="number" id="eulery-YZX" name="eulery-YZX">
+                            <input class="input-angle" type="number" id="eulery-YZX" name="eulery-YZX" value=0>
                             <label for="eulerz-YZX">z: </label>
-                            <input class="input-angle" type="number" id="eulerz-YZX" name="eulerz-YZX">
-                            <button type="button" class="convert-button" id="button-convert-euler-YZX">Convert euler YZX</button>
+                            <input class="input-angle" type="number" id="eulerz-YZX" name="eulerz-YZX" value=0>
+                            <label for="eulerx-YZX">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-YZX" name="eulerx-YZX" value=0>
+                            <button type="button" class="convert-button euler-button"" id="button-convert-euler-YZX">Convert euler YZX</button>
                         </div>
 
                         <!-- YXZ -->
                         <div class="input-euler-values">
-                            <label for="eulerx-YXZ">x: </label>
-                            <input class="input-angle" type="number" id="eulerx-YXZ" name="eulerx-YXZ">
                             <label for="eulery-YXZ">y: </label>
-                            <input class="input-angle" type="number" id="eulery-YXZ" name="eulery-YXZ">
+                            <input class="input-angle" type="number" id="eulery-YXZ" name="eulery-YXZ" value=0>
+                            <label for="eulerx-YXZ">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-YXZ" name="eulerx-YXZ" value=0>
                             <label for="eulerz-YXZ">z: </label>
-                            <input class="input-angle" type="number" id="eulerz-YXZ" name="eulerz-YXZ">
-                            <button type="button" class="convert-button" id="button-convert-euler-YXZ">Convert euler YXZ</button>
+                            <input class="input-angle" type="number" id="eulerz-YXZ" name="eulerz-YXZ" value=0>
+                            <button type="button" class="convert-button euler-button"" id="button-convert-euler-YXZ">Convert euler YXZ</button>
                         </div>
 
                         <!-- ZXY -->
                         <div class="input-euler-values">
-                            <label for="eulerx-ZXY">x: </label>
-                            <input class="input-angle" type="number" id="eulerx-ZXY" name="eulerx-ZXY">
-                            <label for="eulery-ZXY">y: </label>
-                            <input class="input-angle" type="number" id="eulery-ZXY" name="eulery-ZXY">
                             <label for="eulerz-ZXY">z: </label>
-                            <input class="input-angle" type="number" id="eulerz-ZXY" name="eulerz-ZXY">
-                            <button type="button" class="convert-button" id="button-convert-euler-ZXY">Convert euler ZXY</button>
+                            <input class="input-angle" type="number" id="eulerz-ZXY" name="eulerz-ZXY" value=0>
+                            <label for="eulerx-ZXY">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-ZXY" name="eulerx-ZXY" value=0>
+                            <label for="eulery-ZXY">y: </label>
+                            <input class="input-angle" type="number" id="eulery-ZXY" name="eulery-ZXY" value=0>
+                            <button type="button" class="convert-button euler-button"" id="button-convert-euler-ZXY">Convert euler ZXY</button>
                         </div>
 
                         <!-- ZYX -->
                         <div class="input-euler-values">
-                            <label for="eulerx-ZYX">x: </label>
-                            <input class="input-angle" type="number" id="eulerx-ZYX" name="eulerx-ZYX">
-                            <label for="eulery-ZYX">y: </label>
-                            <input class="input-angle" type="number" id="eulery-ZYX" name="eulery-ZYX">
                             <label for="eulerz-ZYX">z: </label>
-                            <input class="input-angle" type="number" id="eulerz-ZYX" name="eulerz-ZYX">
-                            <button type="button" class="convert-button" id="button-convert-euler-ZYX">Convert eule ZYX</button>
+                            <input class="input-angle" type="number" id="eulerz-ZYX" name="eulerz-ZYX" value=0>
+                            <label for="eulery-ZYX">y: </label>
+                            <input class="input-angle" type="number" id="eulery-ZYX" name="eulery-ZYX" value=0>
+                            <label for="eulerx-ZYX">x: </label>
+                            <input class="input-angle" type="number" id="eulerx-ZYX" name="eulerx-ZYX" value=0>
+                            <button type="button" class="convert-button euler-button" id="button-convert-euler-ZYX">Convert euler ZYX</button>
                         </div>
-
 
                     </div>
                      <!-- quaternion angles -->
                     <div class="angle-section quaternion-section"> 
-                        <div class="section-label"> Quaternion section </div>
+                        <div class="section-label"> Quaternion </div>
                         <label for="quaternionx">x: </label>
-                        <input class="input-angle" type="number" id="quaternionx" name="quaternionx">
+                        <input class="input-angle" type="number" id="quaternionx" name="quaternionx" value=0>
                         <label for="quaterniony">y: </label>
-                        <input class="input-angle" type="number" id="quaterniony" name="quaterniony">
+                        <input class="input-angle" type="number" id="quaterniony" name="quaterniony" value=0>
                         <label for="quaternionz">z: </label>
-                        <input class="input-angle" type="number" id="quaternionz" name="quaternionz">
+                        <input class="input-angle" type="number" id="quaternionz" name="quaternionz" value=0>
                         <label for="quaternionw">w: </label>
-                        <input class="input-angle" type="number" id="quaternionw" name="quaternionw">
+                        <input class="input-angle" type="number" id="quaternionw" name="quaternionw" value=1>
                         <button type="button" class="convert-button" id="button-convert-quaternion">Convert quaternion</button>
 
                     </div>
                      <!-- rotation matrix -->
                     <div class="angle-section rotation-section"> 
 
-                        <div class="section-label"> Rotation Matrix section </div>
+                        <div class="section-label"> Rotation Matrix </div>
                         <div class="section-rotation-matrix">
                             <div>
                                 <label for="rot00">00: </label>
-                                <input class="input-angle" type="number" id="rot00" name="rot00">
-                                <label for="rot00">01: </label>
-                                <input class="input-angle" type="number" id="rot01" name="rot01">
-                                <label for="rot00">02: </label>
-                                <input class="input-angle" type="number" id="rot02" name="rot02">
+                                <input class="input-angle" type="number" id="rot00" name="rot00" value=1>
+                                <label for="rot01">01: </label>
+                                <input class="input-angle" type="number" id="rot01" name="rot01" value=0>
+                                <label for="rot02">02: </label>
+                                <input class="input-angle" type="number" id="rot02" name="rot02" value=0>
                             </div>
 
                             <div>
-                                <label for="rot00">10: </label>
-                                <input class="input-angle" type="number" id="rot10" name="rot10">
-                                <label for="rot00">11: </label>
-                                <input class="input-angle" type="number" id="rot11" name="rot11">
-                                <label for="rot00">12: </label>
-                                <input class="input-angle" type="number" id="rot12" name="rot12">
+                                <label for="rot10">10: </label>
+                                <input class="input-angle" type="number" id="rot10" name="rot10" value=0>
+                                <label for="rot11">11: </label>
+                                <input class="input-angle" type="number" id="rot11" name="rot11" value=1>
+                                <label for="rot12">12: </label>
+                                <input class="input-angle" type="number" id="rot12" name="rot12" value=0>
                             </div>
 
                             <div>
-                                <label for="rot00">20: </label>
-                                <input class="input-angle" type="number" id="rot20" name="rot20">
-                                <label for="rot00">21: </label>
-                                <input class="input-angle" type="number" id="rot21" name="rot21">
-                                <label for="rot00">22: </label>
-                                <input class="input-angle" type="number" id="rot22" name="rot22">
+                                <label for="rot20">20: </label>
+                                <input class="input-angle" type="number" id="rot20" name="rot20" value=0>
+                                <label for="rot21">21: </label>
+                                <input class="input-angle" type="number" id="rot21" name="rot21" value=0>
+                                <label for="rot22">22: </label>
+                                <input class="input-angle" type="number" id="rot22" name="rot22" value=1>
                             </div>
                         </div>
                         <div class="section-rotation-matrix-button">
                             <button type="button" class="convert-button" id=button-convert-rotation>Convert Rotation Matrix</button>
                         </div>
                     </div>
-                <div> </div>
             </div>
             <!-- display section -->
             <div class="display-section">
@@ -147,20 +148,33 @@
             <script>
 
                 let currentRotation = new THREE.Euler(0,0,0, "XYZ");
+                let currentAngleRep = "radian";
 
                 // Events
                 $(".input-angle").change( (event) => {
                     console.log( event.target.name );
                 } );
 
-                // $("[id^=button-convert-euler]").click( (event) => {
-                //     console.log("convert euler")
-                // } );
+                $('input[type=radio][name=angle-representation]').change(function() {
+                    console.log(this.value);
+                    currentAngleRep = this.value;
+                });
 
                 $("#button-convert-euler-XYZ").click( (event) => {
                     let x = Number($("#eulerx-XYZ").val());
                     let y = Number($("#eulery-XYZ").val());
                     let z = Number($("#eulerz-XYZ").val());
+
+                    if (currentAngleRep === "degree") {
+                        x = THREE.Math.degToRad(x);
+                        y = THREE.Math.degToRad(y);
+                        z = THREE.Math.degToRad(z);
+                    }
+
+                    console.log(x )
+                    console.log(y )
+                    console.log(z )
+
                     let eulerXYZ = new THREE.Euler(x,y,z, "XYZ");
                     let quat = convertEulerToQuaternion(eulerXYZ);
                     let rot = convertEulerToRotationMatrix(eulerXYZ);
@@ -176,6 +190,13 @@
                     let x = Number($("#eulerx-XZY").val());
                     let y = Number($("#eulery-XZY").val());
                     let z = Number($("#eulerz-XZY").val());
+
+                    if (currentAngleRep === "degree") {
+                        x = THREE.Math.degToRad(x);
+                        y = THREE.Math.degToRad(y);
+                        z = THREE.Math.degToRad(z);
+                    }
+
                     let eulerXZY = new THREE.Euler(x,y,z, "XZY");
                     let quat = convertEulerToQuaternion(eulerXZY);
                     let rot = convertEulerToRotationMatrix(eulerXZY);
@@ -191,6 +212,13 @@
                     let x = Number($("#eulerx-YZX").val());
                     let y = Number($("#eulery-YZX").val());
                     let z = Number($("#eulerz-YZX").val());
+
+                    if (currentAngleRep === "degree") {
+                        x = THREE.Math.degToRad(x);
+                        y = THREE.Math.degToRad(y);
+                        z = THREE.Math.degToRad(z);
+                    }
+
                     let eulerYZX = new THREE.Euler(x,y,z, "YZX");
                     let quat = convertEulerToQuaternion(eulerYZX);
                     let rot = convertEulerToRotationMatrix(eulerYZX);
@@ -206,6 +234,13 @@
                     let x = Number($("#eulerx-YXZ").val());
                     let y = Number($("#eulery-YXZ").val());
                     let z = Number($("#eulerz-YXZ").val());
+
+                    if (currentAngleRep === "degree") {
+                        x = THREE.Math.degToRad(x);
+                        y = THREE.Math.degToRad(y);
+                        z = THREE.Math.degToRad(z);
+                    }
+
                     let eulerYXZ = new THREE.Euler(x,y,z, "YXZ");
                     let quat = convertEulerToQuaternion(eulerYXZ);
                     let rot = convertEulerToRotationMatrix(eulerYXZ);
@@ -221,6 +256,13 @@
                     let x = Number($("#eulerx-ZYX").val());
                     let y = Number($("#eulery-ZYX").val());
                     let z = Number($("#eulerz-ZYX").val());
+
+                    if (currentAngleRep === "degree") {
+                        x = THREE.Math.degToRad(x);
+                        y = THREE.Math.degToRad(y);
+                        z = THREE.Math.degToRad(z);
+                    }
+
                     let eulerZYX = new THREE.Euler(x,y,z, "ZYX");
                     let quat = convertEulerToQuaternion(eulerZYX);
                     let rot = convertEulerToRotationMatrix(eulerZYX);
@@ -236,6 +278,13 @@
                     let x = Number($("#eulerx-ZXY").val());
                     let y = Number($("#eulery-ZXY").val());
                     let z = Number($("#eulerz-ZXY").val());
+
+                    if (currentAngleRep === "degree") {
+                        x = THREE.Math.degToRad(x);
+                        y = THREE.Math.degToRad(y);
+                        z = THREE.Math.degToRad(z);
+                    }
+
                     let eulerZXY = new THREE.Euler(x,y,z, "ZXY");
                     let quat = convertEulerToQuaternion(eulerZXY);
                     let rot = convertEulerToRotationMatrix(eulerZXY);
@@ -369,51 +418,84 @@
 
                 function updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quaternion, rot) {
 
+                    let numberOfDigits = 4;
                     currentRotation = eulerXYZ;
-                    $("#quaternionx").val(quaternion.x);
-                    $("#quaterniony").val(quaternion.y);
-                    $("#quaternionz").val(quaternion.z);
-                    $("#quaternionw").val(quaternion.w);
+                    $("#quaternionx").val(quaternion.x.toFixed(numberOfDigits));
+                    $("#quaterniony").val(quaternion.y.toFixed(numberOfDigits));
+                    $("#quaternionz").val(quaternion.z.toFixed(numberOfDigits));
+                    $("#quaternionw").val(quaternion.w.toFixed(numberOfDigits));
 
-                    $("#rot00").val(rot.elements[0]);
-                    $("#rot01").val(rot.elements[3]);
-                    $("#rot02").val(rot.elements[6]);
-                    $("#rot10").val(rot.elements[1]);
-                    $("#rot11").val(rot.elements[4]);
-                    $("#rot12").val(rot.elements[7]);
-                    $("#rot20").val(rot.elements[2]);
-                    $("#rot21").val(rot.elements[5]);
-                    $("#rot22").val(rot.elements[8]);
+                    $("#rot00").val(rot.elements[0].toFixed(numberOfDigits));
+                    $("#rot01").val(rot.elements[3].toFixed(numberOfDigits));
+                    $("#rot02").val(rot.elements[6].toFixed(numberOfDigits));
+                    $("#rot10").val(rot.elements[1].toFixed(numberOfDigits));
+                    $("#rot11").val(rot.elements[4].toFixed(numberOfDigits));
+                    $("#rot12").val(rot.elements[7].toFixed(numberOfDigits));
+                    $("#rot20").val(rot.elements[2].toFixed(numberOfDigits));
+                    $("#rot21").val(rot.elements[5].toFixed(numberOfDigits));
+                    $("#rot22").val(rot.elements[8].toFixed(numberOfDigits));
+
+                    if(currentAngleRep === "degree") {
+
+                        eulerXYZ = new THREE.Vector3(
+                                    THREE.Math.radToDeg(eulerXYZ.x), 
+                                    THREE.Math.radToDeg(eulerXYZ.y), 
+                                    THREE.Math.radToDeg(eulerXYZ.z));
+                        eulerXZY = new THREE.Vector3(
+                                    THREE.Math.radToDeg(eulerXZY.x), 
+                                    THREE.Math.radToDeg(eulerXZY.y), 
+                                    THREE.Math.radToDeg(eulerXZY.z));
+
+                        eulerYXZ = new THREE.Vector3(
+                                    THREE.Math.radToDeg(eulerYXZ.x), 
+                                    THREE.Math.radToDeg(eulerYXZ.y), 
+                                    THREE.Math.radToDeg(eulerYXZ.z));
+
+                        eulerYZX = new THREE.Vector3(
+                                    THREE.Math.radToDeg(eulerYZX.x), 
+                                    THREE.Math.radToDeg(eulerYZX.y), 
+                                    THREE.Math.radToDeg(eulerYZX.z));
+
+                        eulerZXY = new THREE.Vector3(
+                                    THREE.Math.radToDeg(eulerZXY.x), 
+                                    THREE.Math.radToDeg(eulerZXY.y), 
+                                    THREE.Math.radToDeg(eulerZXY.z));
+                                
+                        eulerZYX = new THREE.Vector3(
+                                    THREE.Math.radToDeg(eulerZYX.x), 
+                                    THREE.Math.radToDeg(eulerZYX.y), 
+                                    THREE.Math.radToDeg(eulerZYX.z));
+                    }
 
                     //XYZ
-                    $("#eulerx-XYZ").val(eulerXYZ.x);
-                    $("#eulery-XYZ").val(eulerXYZ.y);
-                    $("#eulerz-XYZ").val(eulerXYZ.z);
+                    $("#eulerx-XYZ").val(eulerXYZ.x.toFixed(numberOfDigits));
+                    $("#eulery-XYZ").val(eulerXYZ.y.toFixed(numberOfDigits));
+                    $("#eulerz-XYZ").val(eulerXYZ.z.toFixed(numberOfDigits));
                     
                     //XZY
-                    $("#eulerx-XZY").val(eulerXZY.x);
-                    $("#eulery-XZY").val(eulerXZY.y);
-                    $("#eulerz-XZY").val(eulerXZY.z);
+                    $("#eulerx-XZY").val(eulerXZY.x.toFixed(numberOfDigits));
+                    $("#eulery-XZY").val(eulerXZY.y.toFixed(numberOfDigits));
+                    $("#eulerz-XZY").val(eulerXZY.z.toFixed(numberOfDigits));
                     
                     //YXZ
-                    $("#eulerx-YXZ").val(eulerYXZ.x);
-                    $("#eulery-YXZ").val(eulerYXZ.y);
-                    $("#eulerz-YXZ").val(eulerYXZ.z);
+                    $("#eulerx-YXZ").val(eulerYXZ.x.toFixed(numberOfDigits));
+                    $("#eulery-YXZ").val(eulerYXZ.y.toFixed(numberOfDigits));
+                    $("#eulerz-YXZ").val(eulerYXZ.z.toFixed(numberOfDigits));
 
                     //YZX
-                    $("#eulerx-YZX").val(eulerYZX.x);
-                    $("#eulery-YZX").val(eulerYZX.y);
-                    $("#eulerz-YZX").val(eulerYZX.z);
+                    $("#eulerx-YZX").val(eulerYZX.x.toFixed(numberOfDigits));
+                    $("#eulery-YZX").val(eulerYZX.y.toFixed(numberOfDigits));
+                    $("#eulerz-YZX").val(eulerYZX.z.toFixed(numberOfDigits));
 
                     //ZYX
-                    $("#eulerx-ZYX").val(eulerZYX.x)
-                    $("#eulery-ZYX").val(eulerZYX.y)
-                    $("#eulerz-ZYX").val(eulerZYX.z)
+                    $("#eulerx-ZYX").val(eulerZYX.x.toFixed(numberOfDigits))
+                    $("#eulery-ZYX").val(eulerZYX.y.toFixed(numberOfDigits))
+                    $("#eulerz-ZYX").val(eulerZYX.z.toFixed(numberOfDigits))
 
                     //ZXY
-                    $("#eulerx-ZXY").val(eulerZXY.x);
-                    $("#eulery-ZXY").val(eulerZXY.y);
-                    $("#eulerz-ZXY").val(eulerZXY.z);
+                    $("#eulerx-ZXY").val(eulerZXY.x.toFixed(numberOfDigits));
+                    $("#eulery-ZXY").val(eulerZXY.y.toFixed(numberOfDigits));
+                    $("#eulerz-ZXY").val(eulerZXY.z.toFixed(numberOfDigits));
                 }
 
                 function setupScene(){
