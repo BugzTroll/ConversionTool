@@ -148,6 +148,7 @@
             <script>
 
                 let currentRotation = new THREE.Euler(0,0,0, "XYZ");
+                let endQuaternion = new THREE.Quaternion();
                 let currentAngleRep = "radian";
 
                 // Events
@@ -170,10 +171,6 @@
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
                     }
-
-                    console.log(x )
-                    console.log(y )
-                    console.log(z )
 
                     let eulerXYZ = new THREE.Euler(x,y,z, "XYZ");
                     let quat = convertEulerToQuaternion(eulerXYZ);
@@ -297,7 +294,6 @@
                 } );
 
                 $("#button-convert-quaternion").click( (event) => {
-                    console.log("convert quat")
                     let x = Number($("#quaternionx").val());
                     let y = Number($("#quaterniony").val());
                     let z = Number($("#quaternionz").val());
@@ -314,7 +310,6 @@
                 } );
 
                 $("#button-convert-rotation").click( (event) => {
-                    console.log("convert rot")
                     let r00 = Number($("#rot00").val());
                     let r01 = Number($("#rot01").val());
                     let r02 = Number($("#rot02").val());
@@ -416,24 +411,84 @@
                     return quaternion;
                 }
 
+//                 function convertCurrentValues(){
+
+//                     if(currentAngleRep === "degree") {
+//                         let XYZ = convertVectorRadToDeg( 
+//                             Number($("#eulerx-XYZ").val()), Number($("#eulery-XYZ").val()), Number($("#eulerz-XYZ").val()));
+
+//                         let XZY = convertVectorRadToDeg( 
+//                             Number($("#eulerx-XZY").val()), Number($("#eulery-XZY").val()), Number($("#eulerz-XZY").val()));
+
+//                         let YZX = convertVectorRadToDeg( 
+//                             Number($("#eulerx-YZX").val()), Number($("#eulery-YZX").val()), Number($("#eulerz-YZX").val()));
+
+//                         let YXZ = convertVectorRadToDeg( 
+//                             Number($("#eulerx-YXZ").val()), Number($("#eulery-YXZ").val()), Number($("#eulerz-YXZ").val()));
+
+//                         let ZXY = convertVectorRadToDeg( 
+//                             Number($("#eulerx-ZXY").val()), Number($("#eulery-ZXY").val()), Number($("#eulerz-ZXY").val()));
+
+//                         let ZYX = convertVectorRadToDeg( 
+//                             Number($("#eulerx-ZYX").val()), Number($("#eulery-ZYX").val()), Number($("#eulerz-ZYX").val()));
+
+//                     } else {
+//                         let XYZ = convertVectorDegToRad( 
+//                             Number($("#eulerx-XYZ").val()), Number($("#eulery-XYZ").val()), Number($("#eulerz-XYZ").val()));
+// ;
+//                         let XZY = convertVectorDegToRad( 
+//                             Number($("#eulerx-XZY").val()), Number($("#eulery-XZY").val()), Number($("#eulerz-XZY").val()));
+
+//                         let YZX = convertVectorDegToRad( 
+//                             Number($("#eulerx-YZX").val()), Number($("#eulery-YZX").val()), Number($("#eulerz-YZX").val()));
+
+//                         let YXZ = convertVectorDegToRad( 
+//                             Number($("#eulerx-YXZ").val()), Number($("#eulery-YXZ").val()), Number($("#eulerz-YXZ").val()));
+
+//                         let ZXY = convertVectorDegToRad( 
+//                             Number($("#eulerx-ZXY").val()), Number($("#eulery-ZXY").val()), Number($("#eulerz-ZXY").val()));
+
+//                         let ZYX = convertVectorDegToRad( 
+//                             Number($("#eulerx-ZYX").val()), Number($("#eulery-ZYX").val()), Number($("#eulerz-ZYX").val()));
+//                     }
+
+//                 }
+
+                function convertVectorRadToDeg(x,y,z){
+                    return new THREE.Vector3(THREE.Math.radToDeg(x),THREE.Math.radToDeg(y),THREE.Math.radToDeg(z) );
+                }
+
+                function convertVectorDegToRad(x,y,z){
+                    return new THREE.Vector3(THREE.Math.degToRad(x),THREE.Math.degToRad(y),THREE.Math.degToRad(z) );
+                }
+
+
                 function updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quaternion, rot) {
 
                     let numberOfDigits = 4;
                     currentRotation = eulerXYZ;
-                    $("#quaternionx").val(quaternion.x.toFixed(numberOfDigits));
-                    $("#quaterniony").val(quaternion.y.toFixed(numberOfDigits));
-                    $("#quaternionz").val(quaternion.z.toFixed(numberOfDigits));
-                    $("#quaternionw").val(quaternion.w.toFixed(numberOfDigits));
+                    debugger;
+                    endQuaternion = convertEulerToQuaternion(eulerXYZ);
 
-                    $("#rot00").val(rot.elements[0].toFixed(numberOfDigits));
-                    $("#rot01").val(rot.elements[3].toFixed(numberOfDigits));
-                    $("#rot02").val(rot.elements[6].toFixed(numberOfDigits));
-                    $("#rot10").val(rot.elements[1].toFixed(numberOfDigits));
-                    $("#rot11").val(rot.elements[4].toFixed(numberOfDigits));
-                    $("#rot12").val(rot.elements[7].toFixed(numberOfDigits));
-                    $("#rot20").val(rot.elements[2].toFixed(numberOfDigits));
-                    $("#rot21").val(rot.elements[5].toFixed(numberOfDigits));
-                    $("#rot22").val(rot.elements[8].toFixed(numberOfDigits));
+                    if(quaternion) {
+                        $("#quaternionx").val(quaternion.x.toFixed(numberOfDigits));
+                        $("#quaterniony").val(quaternion.y.toFixed(numberOfDigits));
+                        $("#quaternionz").val(quaternion.z.toFixed(numberOfDigits));
+                        $("#quaternionw").val(quaternion.w.toFixed(numberOfDigits));
+                    }
+
+                    if(rot) {
+                        $("#rot00").val(rot.elements[0].toFixed(numberOfDigits));
+                        $("#rot01").val(rot.elements[3].toFixed(numberOfDigits));
+                        $("#rot02").val(rot.elements[6].toFixed(numberOfDigits));
+                        $("#rot10").val(rot.elements[1].toFixed(numberOfDigits));
+                        $("#rot11").val(rot.elements[4].toFixed(numberOfDigits));
+                        $("#rot12").val(rot.elements[7].toFixed(numberOfDigits));
+                        $("#rot20").val(rot.elements[2].toFixed(numberOfDigits));
+                        $("#rot21").val(rot.elements[5].toFixed(numberOfDigits));
+                        $("#rot22").val(rot.elements[8].toFixed(numberOfDigits));
+                    }
+
 
                     if(currentAngleRep === "degree") {
 
@@ -529,9 +584,20 @@
                     var line2 = new THREE.Line( geometry, material );
                     line2.material.depthTest = false;
                     scene.add( line2 )
+                    let alpha = 0;
+
+                    var line3 = new THREE.Line( geometry, material );
+                    line3.material.depthTest = false;
+                    scene.add( line3 )
 
                     let animate = function () {
-                        line2.rotation.set(currentRotation.x, currentRotation.y, currentRotation.z);
+                        let targetQuat = new THREE.Quaternion();
+                        alpha += 0.01;
+                        alpha = alpha % 1;
+                        THREE.Quaternion.slerp(new THREE.Quaternion(), endQuaternion, targetQuat, alpha);
+                        line3.rotation.set(currentRotation.x, currentRotation.y, currentRotation.z);
+                        let newRotation = convertQuaternionToEuler(targetQuat, "XZY");
+                        line2.rotation.set(newRotation.x, newRotation.y, newRotation.z);
                         requestAnimationFrame( animate );
                         renderer.render( scene, camera );
                     };
