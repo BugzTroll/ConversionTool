@@ -3,9 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-    <link rel="stylesheet" href="mainpage.css">
+    <link rel="stylesheet" href="css/mainpage.css">
     <script src="dependencies/three.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="javascript/conversion.js"></script>
+    <script src="javascript/test.js"></script>
+    <script src="javascript/render.js"></script>
         <body>
         <div class=container></div>
             <!-- input section -->
@@ -144,7 +147,6 @@
                 <canvas id="canvasScene" width="400" height="400" style="border:1px solid #000000;"></canvas>
             </div>
         </div>
-
             <script>
 
                 let currentRotation = new THREE.Euler(0,0,0, "XYZ");
@@ -330,145 +332,14 @@
                     updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
                 } );
 
-                //TEST FUNCTIONS
-                // let euler = new THREE.Euler(90,0,0);
-                // let quat = convertEulerToQuaternion(euler);
-                // let rot = convertEulerToRotationMatrix(euler);
-
-                // console.log("---------------")
-                // console.log("euler->quat");
-                // console.log(convertEulerToQuaternion(euler));
-                // console.log("euler->rot");
-                // console.log(convertEulerToRotationMatrix(euler));
-
-                // console.log("---------------")
-                // console.log("quat->rot");
-                // console.log(convertQuaternionToRotationMatrix(quat));
-                // console.log("quat->eulerXYZ");
-                // console.log(convertQuaternionToEuler(quat, "XYZ"));
-                // console.log("quat->eulerXZY");
-                // console.log(convertQuaternionToEuler(quat, "XZY"));
-                // console.log("quat->eulerYXZ");
-                // console.log(convertQuaternionToEuler(quat, "YXZ"));
-                // console.log("quat->eulerYZX");
-                // console.log(convertQuaternionToEuler(quat, "YZX"));
-                // console.log("quat->eulerZYX");
-                // console.log(convertQuaternionToEuler(quat, "ZYX"));
-                // console.log("quat->eulerZXY");
-                // console.log(convertQuaternionToEuler(quat, "ZXY"));
-
-                // console.log("---------------")
-                // console.log("rot->quat");
-                // console.log(convertRotationMatrixToQuaternion(rot));
-                // console.log("rot->eulerXYZ");
-                // console.log(convertRotationMatrixToEuler(rot, "XYZ"));
-                // console.log("rot->eulerXZY");
-                // console.log(convertRotationMatrixToEuler(rot, "XZY"));
-                // console.log("rot->eulerYXZ");
-                // console.log(convertRotationMatrixToEuler(rot, "YXZ"));
-                // console.log("rot->eulerYZX");
-                // console.log(convertRotationMatrixToEuler(rot, "YZX"));
-                // console.log("rot->eulerZYX");
-                // console.log(convertRotationMatrixToEuler(rot, "ZYX"));
-                // console.log("rot->eulerZXY");
-                // console.log(convertRotationMatrixToEuler(rot, "ZXY"));
-
-                // Conversion functions
-                function convertEulerToQuaternion(euler) {
-                    let quaternion = new THREE.Quaternion().setFromEuler(euler);
-                    return quaternion;
-                }
-                function convertEulerToRotationMatrix(euler) {
-                    let rotationMatrix4 = new THREE.Matrix4().makeRotationFromEuler(euler);
-                    let rotationMatrix3 = new THREE.Matrix3().setFromMatrix4( rotationMatrix4 );
-                    return rotationMatrix3;
-                }
-                function convertQuaternionToRotationMatrix(quaternion) {
-                    let rotationMatrix4 = new THREE.Matrix4().makeRotationFromQuaternion(quaternion);
-                    let rotationMatrix3 = new THREE.Matrix3().setFromMatrix4( rotationMatrix4 );
-                    return rotationMatrix3;
-                }
-                function convertQuaternionToEuler(quaterion, order) {
-                    let euler = new THREE.Euler().setFromQuaternion(quaterion, order);
-                    return euler;
-                }
-                function convertRotationMatrixToEuler(rotationMatrix3, order) {
-                    let rotationMatrix4 = new THREE.Matrix4().set(
-                        rotationMatrix3.elements[0],rotationMatrix3.elements[3],rotationMatrix3.elements[6], 0,
-                        rotationMatrix3.elements[1],rotationMatrix3.elements[4],rotationMatrix3.elements[7], 0,
-                        rotationMatrix3.elements[2],rotationMatrix3.elements[5],rotationMatrix3.elements[8], 0,
-                        0, 0, 0, 1);
-                    let euler = new THREE.Euler().setFromRotationMatrix(rotationMatrix4, order);
-                    return euler;
-                }
-                function convertRotationMatrixToQuaternion(rotationMatrix3) {
-                    let rotationMatrix4 = new THREE.Matrix4().set(
-                        rotationMatrix3.elements[0],rotationMatrix3.elements[3],rotationMatrix3.elements[6], 0,
-                        rotationMatrix3.elements[1],rotationMatrix3.elements[4],rotationMatrix3.elements[7], 0,
-                        rotationMatrix3.elements[2],rotationMatrix3.elements[5],rotationMatrix3.elements[8], 0,
-                        0, 0, 0, 1);
-                    let quaternion = new THREE.Quaternion().setFromRotationMatrix(rotationMatrix4);
-                    return quaternion;
-                }
-
-//                 function convertCurrentValues(){
-
-//                     if(currentAngleRep === "degree") {
-//                         let XYZ = convertVectorRadToDeg( 
-//                             Number($("#eulerx-XYZ").val()), Number($("#eulery-XYZ").val()), Number($("#eulerz-XYZ").val()));
-
-//                         let XZY = convertVectorRadToDeg( 
-//                             Number($("#eulerx-XZY").val()), Number($("#eulery-XZY").val()), Number($("#eulerz-XZY").val()));
-
-//                         let YZX = convertVectorRadToDeg( 
-//                             Number($("#eulerx-YZX").val()), Number($("#eulery-YZX").val()), Number($("#eulerz-YZX").val()));
-
-//                         let YXZ = convertVectorRadToDeg( 
-//                             Number($("#eulerx-YXZ").val()), Number($("#eulery-YXZ").val()), Number($("#eulerz-YXZ").val()));
-
-//                         let ZXY = convertVectorRadToDeg( 
-//                             Number($("#eulerx-ZXY").val()), Number($("#eulery-ZXY").val()), Number($("#eulerz-ZXY").val()));
-
-//                         let ZYX = convertVectorRadToDeg( 
-//                             Number($("#eulerx-ZYX").val()), Number($("#eulery-ZYX").val()), Number($("#eulerz-ZYX").val()));
-
-//                     } else {
-//                         let XYZ = convertVectorDegToRad( 
-//                             Number($("#eulerx-XYZ").val()), Number($("#eulery-XYZ").val()), Number($("#eulerz-XYZ").val()));
-// ;
-//                         let XZY = convertVectorDegToRad( 
-//                             Number($("#eulerx-XZY").val()), Number($("#eulery-XZY").val()), Number($("#eulerz-XZY").val()));
-
-//                         let YZX = convertVectorDegToRad( 
-//                             Number($("#eulerx-YZX").val()), Number($("#eulery-YZX").val()), Number($("#eulerz-YZX").val()));
-
-//                         let YXZ = convertVectorDegToRad( 
-//                             Number($("#eulerx-YXZ").val()), Number($("#eulery-YXZ").val()), Number($("#eulerz-YXZ").val()));
-
-//                         let ZXY = convertVectorDegToRad( 
-//                             Number($("#eulerx-ZXY").val()), Number($("#eulery-ZXY").val()), Number($("#eulerz-ZXY").val()));
-
-//                         let ZYX = convertVectorDegToRad( 
-//                             Number($("#eulerx-ZYX").val()), Number($("#eulery-ZYX").val()), Number($("#eulerz-ZYX").val()));
-//                     }
-
-//                 }
-
-                function convertVectorRadToDeg(x,y,z){
-                    return new THREE.Vector3(THREE.Math.radToDeg(x),THREE.Math.radToDeg(y),THREE.Math.radToDeg(z) );
-                }
-
-                function convertVectorDegToRad(x,y,z){
-                    return new THREE.Vector3(THREE.Math.degToRad(x),THREE.Math.degToRad(y),THREE.Math.degToRad(z) );
-                }
-
+                //executeTest();
 
                 function updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quaternion, rot) {
 
                     let numberOfDigits = 4;
                     currentRotation = eulerXYZ;
-                    debugger;
                     endQuaternion = convertEulerToQuaternion(eulerXYZ);
+                    scene.updateCurrentRotation(eulerXYZ)
 
                     if(quaternion) {
                         $("#quaternionx").val(quaternion.x.toFixed(numberOfDigits));
@@ -553,59 +424,41 @@
                     $("#eulerz-ZXY").val(eulerZXY.z.toFixed(numberOfDigits));
                 }
 
-                function setupScene(){
-                    let scene = new THREE.Scene();
-                    let canvas = $("#canvasScene");
-                    let camera = new THREE.PerspectiveCamera( 75, canvas.width() / canvas.height(), 0.1, 1000 );
+                mouseisDown = false;
+                initMousePos = new THREE.Vector2();
+                var testRotation = new THREE.Euler(0,0,0);
+                var lastMousePos = new THREE.Vector2(0,0);
 
-                    let renderer = new THREE.WebGLRenderer({ canvas: canvasScene });
-                    renderer.setSize( canvas.width(), canvas.height() );
+                $("#canvasScene").mousedown(function(event) {
+                    console.log("DOWN");
+                    mouseisDown = true;
+                    initMousePos.x = event.clientX;
+                    initMousePos.y = event.clientY;
+                    lastMousePos.x = event.clientX;
+                    lastMousePos.y = event.clientY;
+                });
 
-                    let axesHelper = new THREE.AxesHelper( 2.5 );
-                    scene.add( axesHelper );
+                $("#canvasScene").mousemove(function(event) {
+                    console.log("MOVE");
+                    if( mouseisDown ){
+                        let xDelta =  event.clientY - lastMousePos.y;
+                        let yDelta = event.clientX - lastMousePos.x ;
+                        testRotation.x += xDelta * 0.01;
+                        testRotation.y += yDelta * 0.01;
+                        scene.rotateMainScene(testRotation)
+                        lastMousePos.x = event.clientX;
+                        lastMousePos.y = event.clientY;
+                    }
+                });
 
-                    var gridHelper = new THREE.GridHelper( 10, 10 );
-                    scene.add( gridHelper );
+                $("#canvasScene").mouseup(function(event) {
+                    console.log("UP");
+                    mouseisDown = false;
+                });
 
-                    camera.position.z = 3;
-                    camera.position.y = 3;
-                    camera.position.x = 3;
-                    camera.lookAt(new THREE.Vector3(0,0,0));
-
-                    var material = new THREE.LineBasicMaterial( { color: 0xffffff } );
-                    var geometry = new THREE.Geometry();
-                    geometry.vertices.push(new THREE.Vector3( 0, 0, 0) );
-                    geometry.vertices.push(new THREE.Vector3( 0, 0, 1) );
-                    geometry.vertices.push(new THREE.Vector3( 0, 0, 2) );
-                    var line = new THREE.Line( geometry, material );
-                    line.material.depthTest = false;
-                    scene.add( line );
-
-                    var line2 = new THREE.Line( geometry, material );
-                    line2.material.depthTest = false;
-                    scene.add( line2 )
-                    let alpha = 0;
-
-                    var line3 = new THREE.Line( geometry, material );
-                    line3.material.depthTest = false;
-                    scene.add( line3 )
-
-                    let animate = function () {
-                        let targetQuat = new THREE.Quaternion();
-                        alpha += 0.01;
-                        alpha = alpha % 1;
-                        THREE.Quaternion.slerp(new THREE.Quaternion(), endQuaternion, targetQuat, alpha);
-                        line3.rotation.set(currentRotation.x, currentRotation.y, currentRotation.z);
-                        let newRotation = convertQuaternionToEuler(targetQuat, "XZY");
-                        line2.rotation.set(newRotation.x, newRotation.y, newRotation.z);
-                        requestAnimationFrame( animate );
-                        renderer.render( scene, camera );
-                    };
-
-                    animate();
-                }
-
-                setupScene();
+                //create angle display scene
+                let scene = new DisplayScene("canvasScene");
+                scene.animate();
 
             </script>
 
