@@ -4,7 +4,7 @@ This is a tool to help convert an visualise 3D rotations.
 
 Page link : https://bugztroll.github.io/ConversionTool/
 
-#Supported conversions:
+# Supported conversions:
 - Euler to quaternion
 - Euler to rotation matrix
 - Euler to axis and angle
