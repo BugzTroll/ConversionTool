@@ -38,7 +38,7 @@ class DisplayScene {
       this.sceneObject.add( this.line3 )
 
       //setting camera init position
-      this.camera.position.set(3, 3, 3);
+      this.camera.position.set(0, 3, 3);
       this.camera.lookAt(new THREE.Vector3(0,0,0));
     }
 
@@ -58,10 +58,6 @@ class DisplayScene {
 
         requestAnimationFrame( this.animate.bind( this ) );
         this.renderer.render( this.scene, this.camera );
-    }
-
-    moveCamera(newpos){
-        console.log("moving");
     }
 
     rotateMainScene(newRotation){

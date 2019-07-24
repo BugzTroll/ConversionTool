@@ -10,7 +10,10 @@
     <script src="javascript/test.js"></script>
     <script src="javascript/render.js"></script>
         <body>
-        <div class=container></div>
+        <div class="header"> 
+        <img class="header-img" src="title.png">                                                                                                                                                                                     
+        </div>
+        <div class="container">
             <!-- input section -->
             <div class="input-section"> 
 
@@ -140,13 +143,27 @@
                             <button type="button" class="convert-button" id=button-convert-rotation>Convert Rotation Matrix</button>
                         </div>
                     </div>
+
+                    <!-- axis and angle -->
+                    <div class="angle-section axis-angle-section"> 
+                        <div class="section-label"> Axis angle </div>
+                        <label for="axisx">x: </label>
+                        <input class="input-angle" type="number" id="axisx" name="axisx" value=0>
+                        <label for="axisy">y: </label>
+                        <input class="input-angle" type="number" id="axisy" name="axisy" value=0>
+                        <label for="axisz">z: </label>
+                        <input class="input-angle" type="number" id="axisz" name="axisz" value=0>
+                        <label for="angle">a: </label>
+                        <input class="input-angle" type="number" id="angle" name="angle" value=1>
+                        <button type="button" class="convert-button" id="button-convert-axis-angle">Convert axis angle</button>
+                    </div>
             </div>
             <!-- display section -->
             <div class="display-section">
-                <div class="section-label"> display section <div>
                 <canvas id="canvasScene" width="400" height="400" style="border:1px solid #000000;"></canvas>
             </div>
         </div>
+    </div>
             <script>
 
                 let currentRotation = new THREE.Euler(0,0,0, "XYZ");
@@ -177,12 +194,13 @@
                     let eulerXYZ = new THREE.Euler(x,y,z, "XYZ");
                     let quat = convertEulerToQuaternion(eulerXYZ);
                     let rot = convertEulerToRotationMatrix(eulerXYZ);
+                    let axisAngle = convertEulerToAxisAngle(eulerXYZ);
                     let eulerXZY = eulerXYZ.clone().reorder("XZY");
                     let eulerYZX = eulerXYZ.clone().reorder("YZX");
                     let eulerYXZ = eulerXYZ.clone().reorder("YXZ");
                     let eulerZYX = eulerXYZ.clone().reorder("ZYX");
                     let eulerZXY = eulerXYZ.clone().reorder("ZXY");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle);
                 } );
 
                 $("#button-convert-euler-XZY").click( (event) => {
@@ -199,12 +217,13 @@
                     let eulerXZY = new THREE.Euler(x,y,z, "XZY");
                     let quat = convertEulerToQuaternion(eulerXZY);
                     let rot = convertEulerToRotationMatrix(eulerXZY);
+                    let axisAngle = convertEulerToAxisAngle(eulerXZY);
                     let eulerXYZ = eulerXZY.clone().reorder("XYZ");
                     let eulerYZX = eulerXZY.clone().reorder("YZX");
                     let eulerYXZ = eulerXZY.clone().reorder("YXZ");
                     let eulerZYX = eulerXZY.clone().reorder("ZYX");
                     let eulerZXY = eulerXZY.clone().reorder("ZXY");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle );
                 } );
 
                 $("#button-convert-euler-YZX").click( (event) => {
@@ -221,12 +240,13 @@
                     let eulerYZX = new THREE.Euler(x,y,z, "YZX");
                     let quat = convertEulerToQuaternion(eulerYZX);
                     let rot = convertEulerToRotationMatrix(eulerYZX);
+                    let axisAngle = convertEulerToAxisAngle(eulerYZX);
                     let eulerXZY = eulerYZX.clone().reorder("XZY");
                     let eulerXYZ = eulerYZX.clone().reorder("XYZ");
                     let eulerYXZ = eulerYZX.clone().reorder("YXZ");
                     let eulerZYX = eulerYZX.clone().reorder("ZYX");
                     let eulerZXY = eulerYZX.clone().reorder("ZXY");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle);
                 } );
 
                 $("#button-convert-euler-YXZ").click( (event) => {
@@ -243,12 +263,13 @@
                     let eulerYXZ = new THREE.Euler(x,y,z, "YXZ");
                     let quat = convertEulerToQuaternion(eulerYXZ);
                     let rot = convertEulerToRotationMatrix(eulerYXZ);
+                    let axisAngle = convertEulerToAxisAngle(eulerYXZ);
                     let eulerXYZ = eulerYXZ.clone().reorder("XYZ");
                     let eulerXZY = eulerYXZ.clone().reorder("XZY");
                     let eulerYZX = eulerYXZ.clone().reorder("YZX");
                     let eulerZYX = eulerYXZ.clone().reorder("ZYX");
                     let eulerZXY = eulerYXZ.clone().reorder("ZXY");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle);
                 } );
 
                 $("#button-convert-euler-ZYX").click( (event) => {
@@ -265,12 +286,13 @@
                     let eulerZYX = new THREE.Euler(x,y,z, "ZYX");
                     let quat = convertEulerToQuaternion(eulerZYX);
                     let rot = convertEulerToRotationMatrix(eulerZYX);
+                    let axisAngle = convertEulerToAxisAngle(eulerZYX)
                     let eulerXYZ = eulerZYX.clone().reorder("XYZ");
                     let eulerXZY = eulerZYX.clone().reorder("XZY");
                     let eulerYZX = eulerZYX.clone().reorder("YZX");
                     let eulerYXZ = eulerZYX.clone().reorder("YXZ");
                     let eulerZXY = eulerZYX.clone().reorder("ZXY");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle);
                 } );
 
                 $("#button-convert-euler-ZXY").click( (event) => {
@@ -287,12 +309,13 @@
                     let eulerZXY = new THREE.Euler(x,y,z, "ZXY");
                     let quat = convertEulerToQuaternion(eulerZXY);
                     let rot = convertEulerToRotationMatrix(eulerZXY);
+                    let axisAngle = convertEulerToAxisAngle(eulerZXY);
                     let eulerXYZ = eulerZXY.clone().reorder("XYZ");
                     let eulerXZY = eulerZXY.clone().reorder("XZY");
                     let eulerYZX = eulerZXY.clone().reorder("YZX");
                     let eulerYXZ = eulerZXY.clone().reorder("YXZ");
                     let eulerZYX = eulerZXY.clone().reorder("ZYX");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle);
                 } );
 
                 $("#button-convert-quaternion").click( (event) => {
@@ -308,7 +331,8 @@
                     let eulerZYX = convertQuaternionToEuler(quat, "ZYX");
                     let eulerZXY = convertQuaternionToEuler(quat, "ZXY");
                     let rot = convertQuaternionToRotationMatrix(quat);
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    let axisAngle = convertQuaternionToAxisAngle(quat)
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle);
                 } );
 
                 $("#button-convert-rotation").click( (event) => {
@@ -329,12 +353,33 @@
                     let eulerYXZ = convertRotationMatrixToEuler(rot, "YZX");
                     let eulerZYX = convertRotationMatrixToEuler(rot, "ZYX");
                     let eulerZXY = convertRotationMatrixToEuler(rot, "ZXY");
-                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot );
+                    let axisAngle = convertRotationMatrixToAxisAngle(rot);
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle );
+                } );
+
+                $("#button-convert-axis-angle").click( (event) => {
+                    let x = Number($("#axisx").val());
+                    let y = Number($("#axisy").val());
+                    let z = Number($("#axisz").val());
+                    let angle = Number($("#angle").val());
+                    let axisAngle = {
+                        axis: new THREE.Vector3(x, y, z),
+                        angle: angle
+                    }
+                    let quat = convertAxisAngleToQuaternion(axisAngle);
+                    let eulerXYZ = convertAxisAngleToEuler(axisAngle, "XYZ");
+                    let eulerXZY = convertAxisAngleToEuler(axisAngle, "XZY");
+                    let eulerYZX = convertAxisAngleToEuler(axisAngle, "YXZ");
+                    let eulerYXZ = convertAxisAngleToEuler(axisAngle, "YZX");
+                    let eulerZYX = convertAxisAngleToEuler(axisAngle, "ZYX");
+                    let eulerZXY = convertAxisAngleToEuler(axisAngle, "ZXY");
+                    let rot = convertAxisAngleToRotationMatrix(axisAngle);
+                    updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quat, rot, axisAngle );
                 } );
 
                 //executeTest();
 
-                function updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quaternion, rot) {
+                function updateAngleValues(eulerXYZ, eulerXZY, eulerYXZ, eulerYZX, eulerZYX, eulerZXY, quaternion, rot, axisAngle) {
 
                     let numberOfDigits = 4;
                     currentRotation = eulerXYZ;
@@ -360,6 +405,12 @@
                         $("#rot22").val(rot.elements[8].toFixed(numberOfDigits));
                     }
 
+                    if(axisAngle) {
+                        $("#axisx").val(axisAngle.axis.x.toFixed(numberOfDigits));
+                        $("#axisy").val(axisAngle.axis.y.toFixed(numberOfDigits));
+                        $("#axisz").val(axisAngle.axis.z.toFixed(numberOfDigits));
+                        $("#angle").val(axisAngle.angle.toFixed(numberOfDigits));
+                    }
 
                     if(currentAngleRep === "degree") {
 
@@ -424,35 +475,29 @@
                     $("#eulerz-ZXY").val(eulerZXY.z.toFixed(numberOfDigits));
                 }
 
-                mouseisDown = false;
-                initMousePos = new THREE.Vector2();
-                var testRotation = new THREE.Euler(0,0,0);
-                var lastMousePos = new THREE.Vector2(0,0);
+                let mouseisDown = false;
+                let sceneRotation = new THREE.Euler(0,0,0);
+                let lastMousePos = new THREE.Vector2(0,0);
 
                 $("#canvasScene").mousedown(function(event) {
-                    console.log("DOWN");
                     mouseisDown = true;
-                    initMousePos.x = event.clientX;
-                    initMousePos.y = event.clientY;
                     lastMousePos.x = event.clientX;
                     lastMousePos.y = event.clientY;
                 });
 
                 $("#canvasScene").mousemove(function(event) {
-                    console.log("MOVE");
                     if( mouseisDown ){
-                        let xDelta =  event.clientY - lastMousePos.y;
-                        let yDelta = event.clientX - lastMousePos.x ;
-                        testRotation.x += xDelta * 0.01;
-                        testRotation.y += yDelta * 0.01;
-                        scene.rotateMainScene(testRotation)
+                        let yDelta =  event.clientY - lastMousePos.y;
+                        let xDelta = event.clientX - lastMousePos.x;
+                        sceneRotation.x += yDelta * 0.01;
+                        sceneRotation.y += xDelta * 0.01;
+                        scene.rotateMainScene(sceneRotation);
                         lastMousePos.x = event.clientX;
                         lastMousePos.y = event.clientY;
                     }
                 });
 
                 $("#canvasScene").mouseup(function(event) {
-                    console.log("UP");
                     mouseisDown = false;
                 });
 

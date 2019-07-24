@@ -1,23 +1,45 @@
 
-/* .input-section {
-    background-color: grey;
-    width: 100%;
+.input-section {
     display: inline-block;
-} */
-
-.display-section{
-    background-color: white;
-    height: 500px;
+    overflow-y: auto;
+    max-height: 500px;
+    margin: 20px;
+    min-height: 550px;
 }
 
-/* .container {
-    text-align: center
-} */
+.display-section{
+    display: inline-block;
+    width: calc(100% - 570px);
+    margin: auto;
+    min-width: 400px;
+}
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100px;
+}
+
+html *{
+    font-family: Helvetica !important;
+}
+
+.header-img {
+    width: 900px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .angle-section {
-    display: inline-block;
     width: 500px;
-    height: 270px;
     text-align: center;
     border: solid 1px;
     padding: 10px 10px 10px 10px;
@@ -26,11 +48,16 @@
 
 .section-label {
     text-align: center;
+    font-weight: bold;
 }
 
 .input-angle {
     width: 70px;
     font-size: 11px;
+    padding: 2px;
+    background-color: #D3D3D3;
+    border: none;
+    -webkit-overflow-scrolling: auto;
 }
 
 .input-euler-values {
@@ -42,6 +69,9 @@
     font-size: 11px;
     vertical-align: middle;
     margin-left: 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid grey;
 }
 
 .section-rotation-matrix-button {
