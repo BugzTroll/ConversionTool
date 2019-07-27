@@ -17,13 +17,21 @@
             <!-- input section -->
             <div class="input-section"> 
 
-                <!-- <div class="section-label"> input section </div> -->
+                <div class="section-label left">
+                    Input :
+                    <input id="input-angle-rad" type="radio" name="input-angle-representation" value="radian" checked="checked"> <label style="font-size: 11px;">Radians</label>
+                    <input id="input-angle-deg" type="radio" name="input-angle-representation" value="degree"> <label style="font-size: 11px;">Degrees</label>
+                </div>
+                <div class="section-label right">
+                    Output : 
+                    <input id="output-angle-rad" type="radio" name="output-angle-representation" value="radian" checked="checked"> <label style="font-size: 11px;">Radians</label>
+                    <input id="output-angle-deg" type="radio" name="output-angle-representation" value="degree"> <label style="font-size: 11px;">Degrees</label>
+
+                </div>
                     <!-- euler angles -->
                     <div class="angle-section euler-section"> 
                         <div class="title">
                             <div class="section-label"> Euler angle </div>
-                            <input id="angle-rad" type="radio" name="angle-representation" value="radian" checked="checked"> <label style="font-size: 11px;">Radians</label>
-                            <input id="angle-deg" type="radio" name="angle-representation" value="degree"> <label style="font-size: 11px;">Degree</label>
                         </div>
 
                          <!-- XYZ -->
@@ -168,16 +176,22 @@
 
                 let currentRotation = new THREE.Euler(0,0,0, "XYZ");
                 let endQuaternion = new THREE.Quaternion();
-                let currentAngleRep = "radian";
+                let currentInputAngleRep = "radian";
+                let currentOutputAngleRep = "radian";
 
                 // Events
                 $(".input-angle").change( (event) => {
                     console.log( event.target.name );
                 } );
 
-                $('input[type=radio][name=angle-representation]').change(function() {
+                $('input[type=radio][name=input-angle-representation]').change(function() {
                     console.log(this.value);
-                    currentAngleRep = this.value;
+                    currentInputAngleRep = this.value;
+                });
+
+                $('input[type=radio][name=output-angle-representation]').change(function() {
+                    console.log(this.value);
+                    currentOutputAngleRep = this.value;
                 });
 
                 $("#button-convert-euler-XYZ").click( (event) => {
@@ -185,7 +199,7 @@
                     let y = Number($("#eulery-XYZ").val());
                     let z = Number($("#eulerz-XYZ").val());
 
-                    if (currentAngleRep === "degree") {
+                    if (currentInputAngleRep === "degree") {
                         x = THREE.Math.degToRad(x);
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
@@ -208,7 +222,7 @@
                     let y = Number($("#eulery-XZY").val());
                     let z = Number($("#eulerz-XZY").val());
 
-                    if (currentAngleRep === "degree") {
+                    if (currentInputAngleRep === "degree") {
                         x = THREE.Math.degToRad(x);
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
@@ -231,7 +245,7 @@
                     let y = Number($("#eulery-YZX").val());
                     let z = Number($("#eulerz-YZX").val());
 
-                    if (currentAngleRep === "degree") {
+                    if (currentInputAngleRep === "degree") {
                         x = THREE.Math.degToRad(x);
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
@@ -254,7 +268,7 @@
                     let y = Number($("#eulery-YXZ").val());
                     let z = Number($("#eulerz-YXZ").val());
 
-                    if (currentAngleRep === "degree") {
+                    if (currentInputAngleRep === "degree") {
                         x = THREE.Math.degToRad(x);
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
@@ -277,7 +291,7 @@
                     let y = Number($("#eulery-ZYX").val());
                     let z = Number($("#eulerz-ZYX").val());
 
-                    if (currentAngleRep === "degree") {
+                    if (currentInputAngleRep === "degree") {
                         x = THREE.Math.degToRad(x);
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
@@ -300,7 +314,7 @@
                     let y = Number($("#eulery-ZXY").val());
                     let z = Number($("#eulerz-ZXY").val());
 
-                    if (currentAngleRep === "degree") {
+                    if (currentInputAngleRep === "degree") {
                         x = THREE.Math.degToRad(x);
                         y = THREE.Math.degToRad(y);
                         z = THREE.Math.degToRad(z);
@@ -409,10 +423,14 @@
                         $("#axisx").val(axisAngle.axis.x.toFixed(numberOfDigits));
                         $("#axisy").val(axisAngle.axis.y.toFixed(numberOfDigits));
                         $("#axisz").val(axisAngle.axis.z.toFixed(numberOfDigits));
-                        $("#angle").val(axisAngle.angle.toFixed(numberOfDigits));
+                        if(currentOutputAngleRep === "degree") {
+                            $("#angle").val(THREE.Math.radToDeg(axisAngle.angle).toFixed(numberOfDigits));
+                        } else {
+                            $("#angle").val(axisAngle.angle.toFixed(numberOfDigits));
+                        }
                     }
 
-                    if(currentAngleRep === "degree") {
+                    if(currentOutputAngleRep === "degree") {
 
                         eulerXYZ = new THREE.Vector3(
                                     THREE.Math.radToDeg(eulerXYZ.x), 
